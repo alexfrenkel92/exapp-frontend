@@ -1,0 +1,56 @@
+.App {
+    font-size: 16px;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+.gridContainer {
+    display: grid;
+    grid-template-areas: 
+        'header'
+        'main'
+        'footer';
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr 50px;
+    height: 100vh;
+}
+header {
+    grid-area: header;
+    background-color: seagreen;
+}
+main {
+    grid-area: main;
+}
+footer {
+    grid-area: footer;
+    background-color: seagreen;
+}
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.header p {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+.header p:hover {
+    color: orange;
+    cursor: pointer;
+}
+.pTag {
+    display: flex;
+    flex-direction: row;
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+

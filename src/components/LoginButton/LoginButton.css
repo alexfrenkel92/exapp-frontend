@@ -1,0 +1,19 @@
+.loginBtn {
+    border-radius: 5px;
+    border: 1px solid rgba(128, 149, 129, 0.503);
+    font-size: 25px;
+    padding: 5px 10px;
+}
+.loginBtn:hover {
+    background-color: seagreen;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.loginBtn:active {
+    outline: 0 !important;
+    transform: translateY(2px);
+    transition-timing-function: ease;
+}
+.loginBtn:focus {
+    outline: 0 !important;
+}
