@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -70,7 +70,7 @@ const Products = () => {
     } else if (isAuthenticated) {
         isAuth = (
             <div className={classes.container}>
-                <h3>
+                {/* <h3>
                     Products fetched from database
                 </h3>
                 <div className={classes.productWrapper}>
@@ -99,7 +99,8 @@ const Products = () => {
                         }
                     </select>
                     <button className={classes.sendBtn} onClick={postProduct}>Post Product</button>
-                </div>
+                </div> */}
+                bacher
             </div>
         )
     }
