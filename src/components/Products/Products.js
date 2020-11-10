@@ -19,10 +19,7 @@ const Products = () => {
     const { loading, products, error } = productList;
 
     useEffect(() => {
-        const timer = setTimeout(() => {
             dispatch(fetchProduct());
-        }, 10000);
-        return () => clearTimeout(timer);
     }, [dispatch])
 
     const [post, setPost] = useState({ productName: '', productRating: '' })
@@ -77,7 +74,7 @@ const Products = () => {
                     Products fetched from database
                 </h3>
                 <div className={classes.productWrapper}>
-                    {loading
+                    {loading 
                         ? <Loading>Loading</Loading>
                         : error ? <MessageBox>{error}</MessageBox>
                             : products.map(product => (
@@ -109,9 +106,41 @@ const Products = () => {
 
 
     return (
-        <>
-            {isAuth}
-        </>
+        // <>
+        //     {isAuth}
+        // </>
+        <div className={classes.container}>
+        <h3>
+            Products fetched from database
+        </h3>
+        <div className={classes.productWrapper}>
+            {loading 
+                ? <Loading>Loading</Loading>
+                : error ? <MessageBox>{error}</MessageBox>
+                    : products.map(product => (
+                        <ProductCard
+                            product={product}
+                            key={product.product_id}
+                            deleteProduct={() => deleteProduct(product.product_id)} />
+                    ))
+            }
+        </div>
+        <div className={classes.postProductWrapper}>
+            <h3>
+                Post new product and rate it
+            </h3>
+            <input maxLength='25' value={post.productName} onChange={e => setPost({ productName: e.target.value, productRating: post.productRating })} />
+            <select value={post.productRating} onChange={e => setPost({ productName: post.productName, productRating: e.target.value })} >
+                <option></option>
+                {
+                    [...Array(5).keys()].map(nr => (
+                        <option key={nr + 1} value={nr + 1}>{nr + 1}</option>
+                    ))
+                }
+            </select>
+            <button className={classes.sendBtn} onClick={postProduct}>Post Product</button>
+        </div>
+    </div>
     )
 }
 
