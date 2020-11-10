@@ -105,7 +105,7 @@ const Products = () => {
     }
 
 
-    let solution = !fetchProduct ? null :
+    let solution = 
     (
         <div className={classes.container}>
                 <h3>
