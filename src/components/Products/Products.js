@@ -54,7 +54,11 @@ const Products = () => {
     }
 
     let isAuth;
-    if (!isAuthenticated) {
+    if (!products) {
+        isAuth = (
+            <div>...</div>
+        )
+    } else if (!isAuthenticated) {
         isAuth = (
             <div className={classes.container}>
                 <div>
@@ -70,7 +74,7 @@ const Products = () => {
     } else if (isAuthenticated) {
         isAuth = (
             <div className={classes.container}>
-                {/* <h3>
+                <h3>
                     Products fetched from database
                 </h3>
                 <div className={classes.productWrapper}>
@@ -99,11 +103,11 @@ const Products = () => {
                         }
                     </select>
                     <button className={classes.sendBtn} onClick={postProduct}>Post Product</button>
-                </div> */}
-                bacher
+                </div>
             </div>
         )
     }
+
 
     return (
         <>
