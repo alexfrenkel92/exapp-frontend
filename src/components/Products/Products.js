@@ -21,7 +21,7 @@ const Products = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             dispatch(fetchProduct());
-        }, 1000);
+        }, 10000);
         return () => clearTimeout(timer);
     }, [dispatch])
 
