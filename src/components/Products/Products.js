@@ -19,7 +19,10 @@ const Products = () => {
     const { loading, products, error } = productList;
 
     useEffect(() => {
-        dispatch(fetchProduct());
+        const timer = setTimeout(() => {
+            dispatch(fetchProduct());
+        }, 300);
+        return () => clearTimeout(timer);
     }, [dispatch])
 
     const [post, setPost] = useState({ productName: '', productRating: '' })
@@ -54,11 +57,7 @@ const Products = () => {
     }
 
     let isAuth;
-    if (!products) {
-        isAuth = (
-            <div>...</div>
-        )
-    } else if (!isAuthenticated) {
+    if (!isAuthenticated) {
         isAuth = (
             <div className={classes.container}>
                 <div>
